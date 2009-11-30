@@ -10,6 +10,8 @@ Source0:	http://users.musicbrainz.org/~matt/%{name}-%{version}.tar.gz
 URL:		http://musicbrainz.org/doc/libdiscid
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%undefine		__cxx
+
 %description
 libdiscid is a C library for creating MusicBrainz DiscIDs from audio
 CDs. It reads a CD's table of contents (TOC) and generates an
