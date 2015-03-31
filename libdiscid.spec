@@ -2,7 +2,7 @@ Summary:	Library for creating MusicBrainz DiscIDs
 Summary(pl.UTF-8):	Biblioteka do tworzenia identyfikatorów DiscID dla MusicBrainz
 Name:		libdiscid
 Version:	0.2.2
-Release:	1
+Release:	2
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://users.musicbrainz.org/~matt/%{name}-%{version}.tar.gz
