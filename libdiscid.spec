@@ -1,12 +1,12 @@
 Summary:	Library for creating MusicBrainz DiscIDs
 Summary(pl.UTF-8):	Biblioteka do tworzenia identyfikatorów DiscID dla MusicBrainz
 Name:		libdiscid
-Version:	0.2.2
-Release:	2
+Version:	0.6.1
+Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
-Source0:	http://users.musicbrainz.org/~matt/%{name}-%{version}.tar.gz
-# Source0-md5:	ee21ddbe696a3c60e14827a75f3bcf5b
+Source0:	http://ftp.musicbrainz.org/pub/musicbrainz/libdiscid/%{name}-%{version}.tar.gz
+# Source0-md5:	98c4b281780707e6b446cc526a825e7a
 URL:		http://musicbrainz.org/doc/libdiscid
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,7 +54,8 @@ Statyczna biblioteka discid.
 %setup -q
 
 %build
-%configure
+%configure \
+	--disable-silent-rules
 %{__make}
 
 %install
@@ -62,6 +63,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+# no external dependencies, obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libdiscid.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -78,7 +82,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libdiscid.so
-%{_libdir}/libdiscid.la
 %{_includedir}/discid
 %{_pkgconfigdir}/libdiscid.pc
 
